@@ -8,7 +8,7 @@ VOLUME ["/novosga"]
 WORKDIR /novosga
 
 RUN apk --no-cache add gettext-dev postgresql-dev && \
-docker-php-ext-install gettext pdo_mysql pdo_pgsql \
+docker-php-ext-install gettext pdo_mysql pdo_pgsql
 
 ADD novosga /novosga
 
