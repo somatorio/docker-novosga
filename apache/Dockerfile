@@ -7,7 +7,7 @@ RUN apt-get update && \
 apt-get install -y postgresql-server-dev-all --no-install-recommends && \
 docker-php-ext-install gettext pdo_mysql pdo_pgsql && \
 a2enmod rewrite && \
-apt-get apt-get remove -y --purge postgresql-server-dev-all && \
+apt-get remove -y --purge postgresql-server-dev-all && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
