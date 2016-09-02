@@ -12,3 +12,5 @@ apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD novosga /var/www/html
+
+RUN chmod 777 /var/www/html/var && chmod 777 /var/www/html/config

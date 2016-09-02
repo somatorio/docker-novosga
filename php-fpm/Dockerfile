@@ -12,3 +12,4 @@ docker-php-ext-install gettext pdo_mysql pdo_pgsql
 
 ADD novosga /novosga
 
+RUN chmod 777 /var/www/html/var && chmod 777 /var/www/html/config
