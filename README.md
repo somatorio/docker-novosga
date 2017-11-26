@@ -1,3 +1,6 @@
+# WARNING: THIS IMAGE IS DEPRECATED IN FAVOR OF NOVOSGA/NOVOSGA:1.X AS IT HAS SUPPORT FROM THE DEVELOPER OF NOVOSGA
+
+
 # novosga
 From novosga docs:
 SGA é o acrônimo de Sistema de Gerenciamento de Atendimento, um sistema adaptável para grandes e pequenas organizações.
@@ -15,9 +18,29 @@ As informações gerenciais fornecidas pelo SGA possibilitam aos gestores planej
 Na versão Novo SGA, a parte web foi totalmente reformulada, deixando mais leve e intuitiva, com uma interface amigável e instalação super fácil. Já no painel, além de melhorias para funcionar em monitores widescreen, foi reescrito em JavaFX.
 
 ## How to use
-`docker container run -d -p 80:80 somatorio/novosga`
+```
+docker container run -d \
+   -e DATABASE_HOST="hostname" \
+   -e DATABASE_USER="dbusername" \
+   -e DATABASE_PASSWORD="dbpass" \
+   -e DATABASE_SGDB="mysql or postgres" \
+   -p 80:80 \
+   somatorio/novosga
+```
 
-If you want to set a timezone different from `America/Sao_Paulo` you have to set the TZ environment variable
-`-e TZ="Timezone/You_Want"`
 
-To persist the configs you'll need to mount a volume at `/var/www/html/config` (remember that the user/group id 33 must have writing permission at this directory)
+### Settings (Environment Variables)
+
+| Setting                 | Default value       | Optional? |
+| ----------------------- | ------------------- | :-------: |
+| DATABASE_HOST           | *blank*             | ***no***  |
+| DATABASE_NAME           | novosga             | yes       | 
+| DATABASE_USER           | *blank*             | ***no***  |
+| DATABASE_PASSWORD       | *blank*             | ***no***  | 
+| DATABASE_SGDB           | *blank*             | ***no***  |
+| DATABASE_PORT           | 3306                | yes       |
+| NOVOSGA_ADMIN_USERNAME  | admin               | yes       |
+| NOVOSGA_ADMIN_FIRSTNAME | Administrator       | yes       | 
+| NOVOSGA_ADMIN_LASTNAME  | Global              | yes       | 
+| NOVOSGA_ADMIN_PASSWORD  | 123456              | yes       |
+| TZ                      | UTC                 | yes       |
